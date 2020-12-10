@@ -91,6 +91,19 @@ const DurationText = styled.Text`
     color: #887468;
 `;
 
+const audioSetting = async() => {
+    await Audio.setAudioModeAsync({
+        staysActiveInBackground: true,
+        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+        shouldDuckAndroid: true,
+        playThroughEarpieceAndroid: false,
+        allowsRecordingIOS: true,
+        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+        playsInSilentModeIOS: true,
+    });    
+}
+
+audioSetting();
 const Soundobj = new Audio.Sound();
 let cnt = 1;
 let NumOfLoop = 1;
@@ -105,6 +118,7 @@ const AudioPlayer = () => {
     const [loop, setLoop] = useState(switchLoop(cnt));
 
     const onPlaybackStatusUpdate = async(obj) => {
+        // console.log("check finished or not: ", obj.didJustFinish);
         setCurTime(secToMin(obj.positionMillis));
         setDuration(secToMin(obj.durationMillis));
         if(obj.didJustFinish){
@@ -113,13 +127,13 @@ const AudioPlayer = () => {
             // play until number of loop === loop cnt
             if(NumOfLoop < switchLoop(cnt)) {
                 NumOfLoop++;
-                console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
+                console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
                 handlePlay();
             }  
 
             // if it is the last song print finish and init cnt, loop, title and stop 
             if( cnt+1 === 10 ) {
-                console.log("finished");
+                console.log("last music");
                 handleStop();
                 return;
             }                 
@@ -133,12 +147,13 @@ const AudioPlayer = () => {
             while(condition) {
                 if(switchLoop(cnt))    break;
                 cnt++;
+                console.log("skippeg");
             }
             
             setTitle(switchTitle(cnt));
             setLoop(switchLoop(cnt));
-            console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
             
+            console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
             // unload and load music only if audio plays next song
             await Soundobj.unloadAsync();
             await Soundobj.loadAsync(SwitchAudio(cnt));
@@ -177,11 +192,10 @@ const AudioPlayer = () => {
     }
 
     const handleForward = async() => {
-        console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         
         if(NumOfLoop < switchLoop(cnt)) {
             NumOfLoop++;
-            console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
+            console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
             handlePlay();
         }
         
@@ -198,21 +212,23 @@ const AudioPlayer = () => {
         while(condition) {
             if(switchLoop(cnt))    break;
             cnt++;
+            console.log("skippeg");
         }
         
         setTitle(switchTitle(cnt));
         setLoop(switchLoop(cnt));
-        console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         
+        console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         await Soundobj.unloadAsync();
         await Soundobj.loadAsync(SwitchAudio(cnt));
         handlePlay();
     }
 
     const handleBackward = async() => {
+        
         if(NumOfLoop > 1) {
             NumOfLoop--;
-            console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
+            console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
             handlePlay();
         }                   
         
@@ -223,9 +239,18 @@ const AudioPlayer = () => {
 
         --cnt;
         NumOfLoop=1;
+
+        const condition = true;
+        while(condition) {
+            if(switchLoop(cnt)) break;
+            --cnt;
+            console.log("skippeg");
+        }
+        
         setTitle(switchTitle(cnt));
         setLoop(switchLoop(cnt));
-        
+
+        console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         await Soundobj.unloadAsync();
         await Soundobj.loadAsync(SwitchAudio(cnt));
         handlePlay();
@@ -254,6 +279,18 @@ const AudioPlayer = () => {
     },[]);
 
     useEffect(() => {
+        // (async() => {
+        //     await Soundobj.setAudioModeAsync({
+        //         staysActiveInBackground: true,
+        //         interruptionModeAndroid: Soundobj.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+        //         shouldDuckAndroid: true,
+        //         playThroughEarpieceAndroid: true,
+        //         allowsRecordingIOS: true,
+        //         interruptionModeIOS: Soundobj.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+        //         playsInSilentModeIOS: true,
+        //     })
+        //     // Soundobj = await Audio.Sound();
+        // })
         if(switchLoop(1)===0)   cnt++;
         setTitle(switchTitle(cnt));
         setLoop(switchLoop(cnt));
