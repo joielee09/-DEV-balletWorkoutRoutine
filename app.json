@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "BalletClass",
+    "slug": "BalletClass",
+    "version": "4.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "primaryColor": "#D5ADA6",
+    "backgroundColor": "#D5ADA6",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#D5ADA6"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.joielee.joielee02",
+      "buildNumber": "4.0.1",
+      "infoPlist": {}
+    },
+    "android": {
+      "package": "com.joielee.joielee02",
+      "versionCode": 5,
+      "permissions": []
+    }
+  }
+}
