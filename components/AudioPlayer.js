@@ -125,11 +125,13 @@ const AudioPlayer = () => {
             console.log("song finished!");
             
             // play until number of loop === loop cnt
-            if(NumOfLoop < switchLoop(cnt)) {
+            if( NumOfLoop<switchLoop(cnt) ) {
                 NumOfLoop++;
                 console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
-                handlePlay();
-            }  
+                await Soundobj.stopAsync();
+                await Soundobj.playAsync();
+                return;
+            } 
 
             // if it is the last song print finish and init cnt, loop, title and stop 
             if( cnt+1 === 10 ) {
@@ -146,6 +148,10 @@ const AudioPlayer = () => {
             const condition = true;
             while(condition) {
                 if(switchLoop(cnt))    break;
+                if(cnt === 10) {
+                    cnt = 1;
+                    break;
+                }
                 cnt++;
                 console.log("skippeg");
             }
@@ -157,7 +163,11 @@ const AudioPlayer = () => {
             // unload and load music only if audio plays next song
             await Soundobj.unloadAsync();
             await Soundobj.loadAsync(SwitchAudio(cnt));
-            handlePlay();
+            if ( cnt===1 ) {
+                handleStop();
+                return;
+            }
+            else    handlePlay();
         }
         setProgress(parseFloat((obj.positionMillis/obj.durationMillis).toFixed(4)));
     }
@@ -172,10 +182,12 @@ const AudioPlayer = () => {
         console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         setIsPlaying(true);
 
-        // if sth is loaded, unload first
-        // if(Soundobj._loaded)    await Soundobj.unloadAsync();
-        // load cur cnt audio file
-        
+        if(Soundobj._loaded) {
+            // if sth is loaded, unload first
+            await Soundobj.unloadAsync();
+            // load cur cnt audio file
+            await Soundobj.loadAsync(SwitchAudio(cnt));
+        }
         await Soundobj.playAsync();
     }
 
@@ -193,10 +205,12 @@ const AudioPlayer = () => {
 
     const handleForward = async() => {
         
-        if(NumOfLoop < switchLoop(cnt)) {
+        if( NumOfLoop < switchLoop(cnt) ) {
             NumOfLoop++;
             console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
-            handlePlay();
+            await Soundobj.stopAsync();
+            await Soundobj.playAsync();
+            return;
         }
         
         if( cnt+1 === 10 ) {
@@ -211,6 +225,10 @@ const AudioPlayer = () => {
         const condition = true;
         while(condition) {
             if(switchLoop(cnt))    break;
+            if(cnt === 10) {
+                cnt = 1;
+                break;
+            }
             cnt++;
             console.log("skippeg");
         }
@@ -221,15 +239,23 @@ const AudioPlayer = () => {
         console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
         await Soundobj.unloadAsync();
         await Soundobj.loadAsync(SwitchAudio(cnt));
-        handlePlay();
+        if ( cnt===1 ) {
+            handleStop();
+            return;
+        }
+        else    handlePlay();
     }
 
     const handleBackward = async() => {
         
-        if(NumOfLoop > 1) {
+        if (NumOfLoop > 1) {
             NumOfLoop--;
             console.log(" Looping!!  cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
-            handlePlay();
+            await Soundobj.stopAsync();
+            await Soundobj.unloadAsync();
+            await Soundobj.loadAsync(SwitchAudio(cnt));
+            await Soundobj.playAsync();
+            return;
         }                   
         
         if(cnt===1){
@@ -238,16 +264,17 @@ const AudioPlayer = () => {
         }
 
         --cnt;
-        NumOfLoop=1;
+        NumOfLoop=switchLoop(cnt);
 
         const condition = true;
         while(condition) {
             if(switchLoop(cnt)) break;
             --cnt;
-            console.log("skippeg");
+            console.log("skipping");
         }
         
         setTitle(switchTitle(cnt));
+        NumOfLoop=switchLoop(cnt);
         setLoop(switchLoop(cnt));
 
         console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
@@ -273,10 +300,13 @@ const AudioPlayer = () => {
     }
 
     useEffect(()=> {
-        navigation.addListener('blur',()=>{
-            handleStop();
+        navigation.addListener('blur',async()=>{
+            if(isPlaying) {
+                await Soundobj.pauseAsync();
+                setIsPlaying(!isPlaying);
+            }
         });
-    },[]);
+    },[isPlaying]);
 
     useEffect(() => {
         // (async() => {
