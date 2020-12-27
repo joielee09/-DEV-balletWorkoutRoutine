@@ -40,7 +40,7 @@ const HorizontalContent = ({
         Linking.openURL(url)
     }
     const [loaded] = Font.useFonts({
-        'IndieFlower': require('../../assets/fonts/IndieFlower-Regular.ttf'),
+        'Alegreya-Medium': require('../../assets/fonts/Alegreya-Medium.ttf'),
     });
     const loadAssets = () => {}
     const onFinish = () => {
@@ -53,7 +53,7 @@ const HorizontalContent = ({
             <Image 
                 source={{ uri:image }}
             />
-            <Text style={{ fontFamily: 'IndieFlower' }}>{title.length>40? `${title.substring(0,40)}...` : title}</Text>
+            <Text style={{ fontFamily: 'Alegreya-Medium' }}>{title.length>40? `${title.substring(0,40)}...` : title}</Text>
             </TouchableOpacity>
             </Wrapper>
         );

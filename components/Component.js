@@ -135,7 +135,7 @@ const Component = ({
     }, [value]);
 
     const [loaded] = Font.useFonts({
-        'IndieFlower': require('../assets/fonts/IndieFlower-Regular.ttf'),
+        'Alegreya-Medium': require('../assets/fonts/Alegreya-Medium.ttf'),
     });
     const loadAssets = () => {}
     const onFinish = () => {
@@ -145,7 +145,7 @@ const Component = ({
         return audio_id%2? (
             <OddWrapper them={audio_id} >
             <TextContainer>
-            <OddText style={{ fontFamily: 'IndieFlower' }}>{title}</OddText>
+            <OddText style={{ fontFamily: 'Alegreya-Medium' }}>{title}</OddText>
             </TextContainer>
             <MinusSection>
             <TouchableOpacity onPress={()=>handleMinus(title)}>
@@ -153,11 +153,12 @@ const Component = ({
                 name="minus-circle"
                 size={25}
                 color="#E1CD87"
+                style={{ shadowColor:'black' }}
             />
             </TouchableOpacity>
             </MinusSection>
     
-            <OddNumber style={{ fontFamily: 'IndieFlower' }}>{value}</OddNumber>
+            <OddNumber style={{ fontFamily: 'Alegreya-Medium' }}>{value}</OddNumber>
     
             <PlusSection>
             <TouchableOpacity onPress={()=>handlePlus(title)}>
@@ -169,12 +170,12 @@ const Component = ({
             </TouchableOpacity>
             </PlusSection>
     
-            <OddDuration style={{ fontFamily: 'IndieFlower' }}>{secToMin(duration*value)}</OddDuration>
+            <OddDuration style={{ fontFamily: 'Alegreya-Medium' }}>{secToMin(duration*value)}</OddDuration>
             </OddWrapper>
         ): (
             <EvenWrapper them={audio_id} >
             <TextContainer>
-            <EvenText style={{ fontFamily: 'IndieFlower' }}>{title}</EvenText>
+            <EvenText style={{ fontFamily: 'Alegreya-Medium' }}>{title}</EvenText>
             </TextContainer>
     
             <MinusSection>
@@ -187,7 +188,7 @@ const Component = ({
             </TouchableOpacity>
             </MinusSection>
     
-            <EvenNumber style={{ fontFamily: 'IndieFlower' }}>{value}</EvenNumber>
+            <EvenNumber style={{ fontFamily: 'Alegreya-Medium' }}>{value}</EvenNumber>
             
             <PlusSection>
             <TouchableOpacity onPress={()=>handlePlus(title)}>
@@ -199,7 +200,7 @@ const Component = ({
             </TouchableOpacity>
             </PlusSection>
     
-            <EvenDuration style={{ fontFamily: 'IndieFlower' }}>{secToMin(duration*value)}</EvenDuration>
+            <EvenDuration style={{ fontFamily: 'Alegreya-Medium' }}>{secToMin(duration*value)}</EvenDuration>
             </EvenWrapper>
         );
     } else {

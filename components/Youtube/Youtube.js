@@ -49,7 +49,7 @@ const Basic = () => {
     const onFinish = () => {
     }
     const [loaded] = Font.useFonts({
-        'IndieFlower': require('../../assets/fonts/IndieFlower-Regular.ttf'),
+        'Alegreya-Medium': require('../../assets/fonts/Alegreya-Medium.ttf'),
     });
 
     console.log(stretching);
@@ -59,7 +59,7 @@ const Basic = () => {
             <Wrapper>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Stretching</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Stretching</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {stretching.map(cur=>(
@@ -74,7 +74,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Plie</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Plie</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {plie.map(cur=>(
@@ -89,7 +89,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Tendus</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Tendus</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {tendus.map(cur=>(
@@ -104,7 +104,7 @@ const Basic = () => {
             </ScrollView>
     
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Jete</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Jete</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {jete.map(cur=>(
@@ -119,7 +119,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Degage</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Degage</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {degage.map(cur=>(
@@ -134,7 +134,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>RondDeJumbe</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>RondDeJumbe</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {rondDeJumbe.map(cur=>(
@@ -149,7 +149,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Battemant</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Battemant</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {Battemant.map(cur=>(
@@ -164,7 +164,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>GrandBattemant</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>GrandBattemant</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {GrandBattemant.map(cur=>(
@@ -179,7 +179,7 @@ const Basic = () => {
             </ScrollView>
 
             <Category>
-                <CategoryText style={{ fontFamily: 'IndieFlower' }}>Jumps</CategoryText>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Jumps</CategoryText>
             </Category>
             <ScrollView horizontal={true}>
                 {Jumps.map(cur=>(

@@ -11,6 +11,8 @@ import { connect } from "react-redux";
 import { store } from "../Store";
 import * as Font from 'expo-font';
 import { AppLoading } from "expo";
+import * as BackgroundFetch from 'expo-background-fetch';
+import * as TaskManager from 'expo-task-manager';
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -97,10 +99,10 @@ const audioSetting = async() => {
         interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
         shouldDuckAndroid: true,
         playThroughEarpieceAndroid: false,
-        allowsRecordingIOS: true,
+        allowsRecordingIOS: false,
         interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
         playsInSilentModeIOS: true,
-    });    
+    });     
 }
 
 audioSetting();
@@ -121,6 +123,7 @@ const AudioPlayer = () => {
         // console.log("check finished or not: ", obj.didJustFinish);
         setCurTime(secToMin(obj.positionMillis));
         setDuration(secToMin(obj.durationMillis));
+        console.log("time: ",obj.positionMillis);
         if(obj.didJustFinish){
             console.log("song finished!");
             
@@ -330,7 +333,7 @@ const AudioPlayer = () => {
     }, [])
 
     const [loaded] = Font.useFonts({
-        'IndieFlower': require('../assets/fonts/IndieFlower-Regular.ttf'),
+        'Alegreya-Medium': require('../assets/fonts/Alegreya-Medium.ttf'),
     });
     const loadAssets = () => {}
     const onFinish = () => {
@@ -342,7 +345,7 @@ const AudioPlayer = () => {
             
             {/* Title */}
             <TitleContainer>
-                <TitleText style={{ fontFamily: 'IndieFlower' }}>{title}</TitleText>
+                <TitleText style={{ fontFamily: 'Alegreya-Medium' }}>{title}</TitleText>
             </TitleContainer>
             
             {/* ProgressBar */}
@@ -367,7 +370,7 @@ const AudioPlayer = () => {
             {/* Button */}
             <ButtonContainer>
                 {/* StopBtn */}
-                <TouchableOpacity onPress={handleStop}>
+                {/* <TouchableOpacity onPress={handleStop}>
                 <StopBtn>
                 <Entypo 
                     name="controller-stop"
@@ -375,13 +378,13 @@ const AudioPlayer = () => {
                     color="#887468"
                 />
                 </StopBtn>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 {/* PrevBtn */}
                 <TouchableOpacity onPress={handleBackward}>
                 <PrevBtn>
                 <Entypo 
                     name="controller-jump-to-start"
-                    size={40}
+                    size={60}
                     color="#887468"
                 />
                 </PrevBtn>
@@ -392,13 +395,13 @@ const AudioPlayer = () => {
                 {isPlaying? (
                     <Entypo 
                     name="controller-paus"
-                    size={50}
+                    size={70}
                     color="#887468"
                     />
                 ) : (
                     <Entypo 
                     name="controller-play"
-                    size={50}
+                    size={70}
                     color="#887468"
                     />
                 )}
@@ -409,21 +412,13 @@ const AudioPlayer = () => {
                 <NextBtn>
                 <Entypo 
                     name="controller-next"
-                    size={40}
+                    size={60}
                     color="#887468"
                 />
                 </NextBtn>
                 </TouchableOpacity>
                 {/* SettingBtn */}
-                <TouchableOpacity onPress={goToYoutube}>
-                <SettingBtn>
-                <Entypo 
-                    name="youtube" 
-                    size={30} 
-                    color="#E1CD87"
-                />
-                </SettingBtn>
-                </TouchableOpacity>
+                
             </ButtonContainer>
             </Wrapper>
         );
