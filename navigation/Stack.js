@@ -24,7 +24,8 @@ export default () => {
     return(
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{backgroundColor:'#D5ADA6'}
+                headerStyle:{backgroundColor:'#D5ADA6'},
+                headerTintColor: "#F0EFEB"
             }}
         >
             <Stack.Screen 
@@ -45,7 +46,8 @@ export default () => {
                     <Entypo 
                         name="youtube" 
                         size={35} 
-                        color="#E1CD87"
+                        // color="#E1CD87"
+                        color="#F0EFEB"
                         style={{ marginLeft:10 }}
                     />
                     </TouchableOpacity>

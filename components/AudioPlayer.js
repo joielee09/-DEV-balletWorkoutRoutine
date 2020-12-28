@@ -384,7 +384,7 @@ const AudioPlayer = () => {
                 <PrevBtn>
                 <Entypo 
                     name="controller-jump-to-start"
-                    size={60}
+                    size={50}
                     color="#887468"
                 />
                 </PrevBtn>
@@ -395,13 +395,13 @@ const AudioPlayer = () => {
                 {isPlaying? (
                     <Entypo 
                     name="controller-paus"
-                    size={70}
+                    size={60}
                     color="#887468"
                     />
                 ) : (
                     <Entypo 
                     name="controller-play"
-                    size={70}
+                    size={60}
                     color="#887468"
                     />
                 )}
@@ -412,7 +412,7 @@ const AudioPlayer = () => {
                 <NextBtn>
                 <Entypo 
                     name="controller-next"
-                    size={60}
+                    size={50}
                     color="#887468"
                 />
                 </NextBtn>

@@ -153,7 +153,6 @@ const Component = ({
                 name="minus-circle"
                 size={25}
                 color="#E1CD87"
-                style={{ shadowColor:'black' }}
             />
             </TouchableOpacity>
             </MinusSection>
