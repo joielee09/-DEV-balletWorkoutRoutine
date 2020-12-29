@@ -15,9 +15,13 @@ import {
     rondDeJumbe,
     Battemant,
     GrandBattemant,
-    Jumps
+    Jumps,
+    ballet_inspiration,
+    ballet_dance
 } from '../../API';
 import { AppLoading } from "expo";
+import { View } from "react-native";
+import { ActivityIndicator } from "react-native";
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -57,6 +61,36 @@ const Basic = () => {
         return (
             <ScrollView>
             <Wrapper>
+
+            <Category>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>✨ Ballet Inspiration</CategoryText>
+            </Category>
+            <ScrollView horizontal={true}>
+                {ballet_inspiration.map(cur=>(
+                    <HorizontalContent 
+                        key={ballet_inspiration.indexOf(cur)}
+                        id={cur.id}
+                        title={cur.title}
+                        link={cur.link}
+                        image={cur.image}
+                    />
+                ))}
+            </ScrollView>
+
+            <Category>
+                <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>🎀 Masterpieces</CategoryText>
+            </Category>
+            <ScrollView horizontal={true}>
+                {ballet_dance.map(cur=>(
+                    <HorizontalContent 
+                        key={ballet_dance.indexOf(cur)}
+                        id={cur.id}
+                        title={cur.title}
+                        link={cur.link}
+                        image={cur.image}
+                    />
+                ))}
+            </ScrollView>
 
             <Category>
                 <CategoryText style={{ fontFamily: 'Alegreya-Medium' }}>Stretching</CategoryText>
@@ -200,11 +234,16 @@ const Basic = () => {
     }
     else{
         return(
+            <View
+                style={{ flex:1, justifyContent:'center' }}
+            >
+            <ActivityIndicator size="large" color="#D5ADA6" />
             <AppLoading 
             startAsync={loadAssets}
             onFinish={onFinish}
             onError={console.error}
             />
+            </View>
         );
 
     }

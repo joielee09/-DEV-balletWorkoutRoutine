@@ -1,3 +1,135 @@
+export const ballet_inspiration = [
+    {
+        id: 1001,
+        title: 'BULLIED DANCER GOES VIRAL (Emotional)',
+        link: 'https://www.youtube.com/watch?v=EgTshfSvM0A',
+        image: 'https://img.youtube.com/vi/EgTshfSvM0A/maxresdefault.jpg'
+    },
+    {
+        id: 1002,
+        title: 'Misty Copeland Teaches Ballet Technique and Artistry | Official Trailer | MasterClass',
+        link: 'https://www.youtube.com/watch?v=IQQZNWq0n68',
+        image: 'https://img.youtube.com/vi/IQQZNWq0n68/maxresdefault.jpg'
+    },
+    {
+        id: 1003,
+        title: 'Katelyn Ohashi Was the Best Gymnast in the World, Until She Wasn’t | The Players\' Tribune',
+        link: 'https://www.youtube.com/watch?v=z9b1KAoYz9s',
+        image: 'https://img.youtube.com/vi/z9b1KAoYz9s/maxresdefault.jpg'
+    },
+    {
+        id: 1004,
+        title:'Eating Disorders in Ballet | Kathryn Morgan',
+        link:'https://www.youtube.com/watch?v=1iP6bBQ7W6U',
+        image:'https://img.youtube.com/vi/1iP6bBQ7W6U/maxresdefault.jpg'
+    },
+    {
+        id: 1005,
+        title: 'Teen Ballerina\'s Daily Routine 1 Week Before a Show | Teen Vogue',
+        link: 'https://www.youtube.com/watch?v=ndbmEEysKQo',
+        image: 'https://img.youtube.com/vi/ndbmEEysKQo/maxresdefault.jpg'
+    },
+    {
+        id: 1006,
+        title: 'A Ballerina’s Entire Routine, From Waking Up to Showtime | Work It | Allure',
+        link: 'https://www.youtube.com/watch?v=B6_H0rk_ZZQ',
+        image: 'https://img.youtube.com/vi/B6_H0rk_ZZQ/maxresdefault.jpg'
+    },
+    {
+        id: 1007,
+        title: 'An Olympic Figure Skater\'s Entire Routine, from Waking Up to Showtime | Work It | Allure',
+        link: 'https://www.youtube.com/watch?v=bXEOkjr48S4',
+        image: 'https://img.youtube.com/vi/bXEOkjr48S4/maxresdefault.jpg'
+    },
+    {
+        id: 1008,
+        title: 'How Ballerinas Customize Their Pointe Shoes',
+        link: 'https://www.youtube.com/watch?v=9tISaWeO9q8',
+        image: 'https://img.youtube.com/vi/9tISaWeO9q8/maxresdefault.jpg'
+    },
+    {
+        id: 1009,
+        title: 'The 77 Year Old Ballet Dancer Sharing Seven Decades Of Experience | Amazing Humans',
+        link: 'https://www.youtube.com/watch?v=tP214lJtKlM&t=38s',
+        image: 'https://img.youtube.com/vi/tP214lJtKlM/maxresdefault.jpg'
+    },
+    {
+        id: 1010,
+        title: 'Meet The Dancing Prodigy Who Turned Down Harvard',
+        link: 'https://www.youtube.com/watch?v=T5rnD6u5EtY&t=63s',
+        image: 'https://img.youtube.com/vi/T5rnD6u5EtY/maxresdefault.jpg'
+    },
+    {
+        id: 1011,
+        title: 'How Misty Copeland Broke Ballet Glass Ceiling and Became a Vehicle for Change | Glamour',
+        link: 'https://www.youtube.com/watch?v=J9BIBGD0XoA',
+        image: 'https://img.youtube.com/vi/J9BIBGD0XoA/maxresdefault.jpg'
+    },
+    {
+        id: 1012,
+        title: 'Teenage Ballerina Uses Ankle As Knee Joint',
+        link: 'https://www.youtube.com/watch?v=QQVAHbAV8QM',
+        image: 'https://img.youtube.com/vi/QQVAHbAV8QM/maxresdefault.jpg'
+    }
+]
+
+export const ballet_dance = [
+    {
+        id: 2001,
+        title: 'Don Quixote - Act I finale (Marianela Nuñez and Carlos Acosta, The Royal Ballet)',
+        link: 'https://www.youtube.com/watch?v=5fKxzQ8ARTQ',
+        image: 'https://img.youtube.com/vi/5fKxzQ8ARTQ/maxresdefault.jpg'
+    },
+    {
+        id: 2002,
+        title: 'Swan Lake - Pas de Quatre (Dance of the Small Swans) rehearsal',
+        link: 'https://www.youtube.com/watch?v=-5Yp-vToI2E',
+        image: 'https://img.youtube.com/vi/-5Yp-vToI2E/maxresdefault.jpg'
+    },
+    {
+        id: 2003,
+        title: 'Don Quixote Act 3 - Kitri Variation ft. Carrie Imler (Pacific Northwest Ballet)',
+        link: 'https://www.youtube.com/watch?v=9WvQamsXuqI&list=RD-5Yp-vToI2E&index=2',
+        image: 'https://img.youtube.com/vi/9WvQamsXuqI/maxresdefault.jpg'
+    },
+    {
+        id: 2004,
+        title: 'Swan Lake - Coda from the Black Swan pas de deux in Act III (The Royal Ballet)',
+        link: 'https://www.youtube.com/watch?v=XfmSv0z205s&list=RD-5Yp-vToI2E&index=5',
+        image: 'https://img.youtube.com/vi/XfmSv0z205s/maxresdefault.jpg'
+    },
+    {
+        id: 2005,
+        title: 'Pyotr Ilyich Tchaikovsky / Nina Kaptsova - Dance of the Sugar Plum Fairy / 2010',
+        link: 'https://www.youtube.com/watch?v=Wz_f9B4pPtg',
+        image: 'https://img.youtube.com/vi/Wz_f9B4pPtg/maxresdefault.jpg'
+    },
+    {
+        id: 2006,
+        title: 'Don Quixote – Act III Kitri Variation (Akane Takada, The Royal Ballet)',
+        link: 'https://www.youtube.com/watch?v=9lpR7yQ66mc&list=RD-5Yp-vToI2E&index=7',
+        image: 'https://img.youtube.com/vi/9lpR7yQ66mc/maxresdefault.jpg'
+    },
+    {
+        id: 2007,
+        title: 'The Sleeping Beauty - Bluebird and Princess Florine pas de deux (The Royal Ballet)',
+        link: 'https://www.youtube.com/watch?v=BZe0TFU75rI',
+        image: 'https://img.youtube.com/vi/BZe0TFU75rI/maxresdefault.jpg'
+    },
+    {
+        id: 2008,
+        title: '(Carmen)Бизе - Щедрин - Кармен-сюита. 1975г',
+        link: 'https://www.youtube.com/watch?v=CoxDZqYfoxE&list=RDIDMcWSYali8&index=15',
+        image: 'https://img.youtube.com/vi/CoxDZqYfoxE/sddefault.jpg'
+    },
+    {
+        id: 2009,
+        title: '(Esmeralda, Korean student)발레 / 에스메랄다 La esmeralda - 김영경',
+        link: 'https://www.youtube.com/watch?v=Avd1z1STuOc',
+        image: 'https://img.youtube.com/vi/Avd1z1STuOc/maxresdefault.jpg'
+    },
+]
+
 export const stretching = [
     {
         id: 101,

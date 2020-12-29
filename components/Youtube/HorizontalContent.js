@@ -7,6 +7,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import * as Font from 'expo-font';
 import { AppLoading } from "expo";
 import { Image } from "react-native-expo-image-cache";
+import { View } from "react-native";
+import { ActivityIndicator } from "react-native";
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -58,11 +60,16 @@ const HorizontalContent = ({
         );
     } else {
         return(
+        <View
+            style={{ flex:1, justifyContent:'center' }}
+        >
+        <ActivityIndicator size="small" color="#D5ADA6" />
         <AppLoading 
             startAsync={loadAssets}
             onFinish={onFinish}
             onError={console.error}
         />
+        </View>
         );
     }
     
