@@ -11,7 +11,7 @@ const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
 
 const Wrapper = styled.View`
-    width: 185px;
+    width: 145px;
     height: 160px;
     border: gray 0.5px solid;
     margin: 10px 20px 10px 20px;
@@ -22,11 +22,12 @@ const Wrapper = styled.View`
     border-radius: 7px;
     justify-content: space-evenly;
     background-color: #FFF6F6;
+    box-shadow: 3px 3px 3px gray;
 `;
 const Text = styled.Text``;
 const Image = styled.Image`
-    width: 160px;
-    height: 90px;
+    width: 123px;
+    height: 70px;
 `;
 
 const HorizontalContent = ({

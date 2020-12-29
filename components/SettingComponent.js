@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
 import { Feather } from '@expo/vector-icons';
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import { store } from "../Store";
 import { secToMin } from "../utils";
+import { TouchableOpacity } from 'react-native';
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;

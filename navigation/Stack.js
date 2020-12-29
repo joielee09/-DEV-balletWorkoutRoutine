@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Player from "../components/Home";
 import Setting from "../components/Setting";
 import { Octicons } from '@expo/vector-icons';
-import { TouchableOpacity } from "react-native-gesture-handler";
 import Youtube from "../components/Youtube/Youtube";
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons';
+import { Dimensions } from "react-native";
+import Modal from 'react-native-modal';
+import {Button, View} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
-const Wrapper = styled.View``;
-const Text = styled.Text``;
-const HeaderContainer = styled.View`
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    background-color: red;
-`;
+const WIDTH = Dimensions.get('screen').width;
+const HEIGHT = Dimensions.get('screen').height;
 
 const Stack = createStackNavigator();
 
 export default () => {
-
+    const [isModalVisible, setModalVisible] = useState(false);
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
     return(
         <Stack.Navigator
             screenOptions={{
@@ -29,16 +29,16 @@ export default () => {
             }}
         >
             <Stack.Screen 
-            options={({ navigation }) => ({
+                options={({ navigation }) => ({
                 headerTitle: "",
                 headerRight:() =>(
                     <TouchableOpacity onPress={()=>navigation.navigate("Setting")}>
-                    <Octicons 
-                    name="three-bars" 
-                    size={35} 
-                    color="#F0EFEB"
-                    style={{ marginRight:10 }}
-                    />
+                        <Octicons 
+                        name="three-bars" 
+                        size={35} 
+                        color="#F0EFEB"
+                        style={{ marginRight:10 }}
+                        />
                     </TouchableOpacity>
                 ),
                 headerLeft:() => (
@@ -59,14 +59,14 @@ export default () => {
             <Stack.Screen 
             options={{ 
                 headerTitle: ""
-             }}
+            }}
             name="Setting" 
             component={Setting} 
             />
             <Stack.Screen 
             options={{ 
                 headerTitle: ""
-             }}
+            }}
             name="Youtube" 
             component={Youtube} />
         </Stack.Navigator>

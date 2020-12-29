@@ -13,6 +13,7 @@ import * as Font from 'expo-font';
 import { AppLoading } from "expo";
 import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
+import { Alert, Modal, StyleSheet, Text, TouchableHighlight, View  } from "react-native";
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -123,7 +124,7 @@ const AudioPlayer = () => {
         // console.log("check finished or not: ", obj.didJustFinish);
         setCurTime(secToMin(obj.positionMillis));
         setDuration(secToMin(obj.durationMillis));
-        console.log("time: ",obj.positionMillis);
+        // console.log("time: ",obj.positionMillis);
         if(obj.didJustFinish){
             console.log("song finished!");
             
@@ -177,9 +178,6 @@ const AudioPlayer = () => {
 
     // go to youtube page
     const navigation = useNavigation();
-    const goToYoutube = () => {
-        navigation.navigate("Youtube",{});
-    }
 
     const handlePlay = async() => {
         console.log("cnt is ", cnt, " title is: ", switchTitle(cnt), " loop is: " , switchLoop(cnt),"and cur loop is: ", NumOfLoop);
@@ -338,11 +336,10 @@ const AudioPlayer = () => {
     const loadAssets = () => {}
     const onFinish = () => {
     }
-
+    const [modalVisible, setModalVisible] = useState(false);
     if(loaded){
         return (
             <Wrapper>
-            
             {/* Title */}
             <TitleContainer>
                 <TitleText style={{ fontFamily: 'Alegreya-Medium' }}>{title}</TitleText>
@@ -512,3 +509,42 @@ const switchLoop = (input) => {
             return store.getState().jumps.count;
     }
 }
+
+const styles = StyleSheet.create({
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+    },
+    modalView: {
+      margin: 20,
+      backgroundColor: 'white',
+      borderRadius: 20,
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    openButton: {
+      backgroundColor: '#F194FF',
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
+    },
+    textStyle: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: 'center',
+    },
+  });
