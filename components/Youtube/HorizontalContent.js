@@ -6,6 +6,7 @@ import { Link } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import * as Font from 'expo-font';
 import { AppLoading } from "expo";
+import { Image } from "react-native-expo-image-cache";
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -25,10 +26,6 @@ const Wrapper = styled.View`
     box-shadow: 3px 3px 3px gray;
 `;
 const Text = styled.Text``;
-const Image = styled.Image`
-    width: 123px;
-    height: 70px;
-`;
 
 const HorizontalContent = ({
     id,
@@ -36,7 +33,7 @@ const HorizontalContent = ({
     link,
     image
 }) => {
-
+    const uri = image;
     const handleLink = (url) => {
         Linking.openURL(url)
     }
@@ -52,7 +49,8 @@ const HorizontalContent = ({
             <Wrapper>
             <TouchableOpacity onPress={()=>handleLink(link)}>
             <Image 
-                source={{ uri:image }}
+                style={{ height: 70, width: 125 }}
+                {...{uri}}
             />
             <Text style={{ fontFamily: 'Alegreya-Medium' }}>{title.length>40? `${title.substring(0,40)}...` : title}</Text>
             </TouchableOpacity>
