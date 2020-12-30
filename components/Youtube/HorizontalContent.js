@@ -63,7 +63,7 @@ const HorizontalContent = ({
         <View
             style={{ flex:1, justifyContent:'center' }}
         >
-        <ActivityIndicator size="small" color="#D5ADA6" />
+        {/* <ActivityIndicator size="small" color="#D5ADA6" /> */}
         <AppLoading 
             startAsync={loadAssets}
             onFinish={onFinish}

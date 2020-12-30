@@ -56,7 +56,7 @@ const Basic = () => {
         'Alegreya-Medium': require('../../assets/fonts/Alegreya-Medium.ttf'),
     });
 
-    console.log(stretching);
+    // console.log(stretching);
     if(loaded){
         return (
             <ScrollView>
