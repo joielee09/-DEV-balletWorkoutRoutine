@@ -14,6 +14,7 @@ import { AppLoading } from "expo";
 import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
 import { Alert, Modal, StyleSheet, Text, TouchableHighlight, View  } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
@@ -33,12 +34,14 @@ const ProgressContainer = styled.View`
 `;
 const ButtonContainer = styled.View`
     width: ${WIDTH}px;
-    height: ${HEIGHT/10}px;
+    /* height: ${HEIGHT/8}px; */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     padding-right: 20px;
     padding-left: 20px;
+    /* background-color: orange; */
+    padding-top: 10px;
 `;
 const SettingBtn = styled.View`
     width: 50px;
@@ -47,19 +50,10 @@ const SettingBtn = styled.View`
     padding-top: 12px;
 `;
 const PlayPuaseBtn = styled.View`
-    width: 50px;
-    height: 50px;
 `;
 const NextBtn = styled.View`
-    width: 50px;
-    height: 50px;
-    padding-top: 5px;
 `;
 const PrevBtn = styled.View`
-    width: 50px;
-    height: 50px;
-    padding-top: 4px;
-    padding-left: 10px;
 `;
 const StopBtn = styled.View`
     width: 50px;
@@ -379,10 +373,10 @@ const AudioPlayer = () => {
                 {/* PrevBtn */}
                 <TouchableOpacity onPress={handleBackward}>
                 <PrevBtn>
-                <Entypo 
-                    name="controller-jump-to-start"
-                    size={50}
-                    color="#887468"
+                <Ionicons 
+                    name="md-skip-backward" 
+                    size={50} 
+                    color="#887468" 
                 />
                 </PrevBtn>
                 </TouchableOpacity>
@@ -390,16 +384,16 @@ const AudioPlayer = () => {
                 <TouchableOpacity onPress={handlePlayPause}>
                 <PlayPuaseBtn>
                 {isPlaying? (
-                    <Entypo 
-                    name="controller-paus"
-                    size={60}
-                    color="#887468"
+                    <Ionicons 
+                        name="md-pause" 
+                        size={50} 
+                        color="#887468" 
                     />
                 ) : (
-                    <Entypo 
-                    name="controller-play"
-                    size={60}
-                    color="#887468"
+                    <Ionicons 
+                        name="md-play" 
+                        size={50} 
+                        color="#887468" 
                     />
                 )}
                 </PlayPuaseBtn>
@@ -407,10 +401,10 @@ const AudioPlayer = () => {
                 {/* NextBtn */}
                 <TouchableOpacity onPress={handleForward}>
                 <NextBtn>
-                <Entypo 
-                    name="controller-next"
-                    size={50}
-                    color="#887468"
+                <Ionicons 
+                    name="md-skip-forward" 
+                    size={50} 
+                    color="#887468" 
                 />
                 </NextBtn>
                 </TouchableOpacity>

@@ -4,13 +4,14 @@ import { Dimensions, Button } from "react-native";
 import Audio from "./AudioPlayer";
 import AppIntroSlider from 'react-native-app-intro-slider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useKeepAwake } from 'expo-keep-awake';
 
 const WIDTH = Dimensions.get('screen').width;
 const HEIGHT = Dimensions.get('screen').height;
 
 const ImageHome = styled.Image`
     width: ${WIDTH}px;
-    height: ${WIDTH*1.18}px;
+    height: ${WIDTH*1.14}px;
 `;
 const Wrapper = styled.View`
     height: ${HEIGHT}px;
@@ -79,8 +80,8 @@ const visitedChk = async ()=> {
 visitedChk();
 
 const Player = () => {
+    useKeepAwake();
     const [showRealApp, setShowRealApp] = useState(false);
-    
     const renderItem = ({ item }) => {
         return (
             <View>
@@ -88,13 +89,11 @@ const Player = () => {
             </View>
         )
     }
-    
     const _onDone = async() => {
         await storeData('true');
         setShowRealApp(true);
         console.log("on done activated");
     }
-
     useEffect(() => {
         if(data==='true'){
             setShowRealApp(true);
@@ -104,7 +103,6 @@ const Player = () => {
             console.log('there is no data and it is the first visit')
         }
     }, []);
-
     if(showRealApp){
         return(
             <Wrapper>

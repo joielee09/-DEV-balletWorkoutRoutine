@@ -2,7 +2,7 @@
   "expo": {
     "name": "BalletClass",
     "slug": "BalletClass",
-    "version": "7.0.1",
+    "version": "8.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "primaryColor": "#D5ADA6",
@@ -20,17 +20,16 @@
     ],
     "ios": {
       "bundleIdentifier": "com.joielee.joielee02",
-      "buildNumber": "7.0.1",
+      "buildNumber": "8.0.0",
       "infoPlist": {
         "UIBackgroundModes": [
-        "audio",
-        "fetch"
+        "audio"
       ]
     }
     },
     "android": {
       "package": "com.joielee.joielee02",
-      "versionCode": 7,
+      "versionCode": 8,
       "permissions": []
     }
   }
