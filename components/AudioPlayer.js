@@ -100,13 +100,14 @@ const audioSetting = async() => {
     });     
 }
 
-audioSetting();
+// audioSetting();
 const Soundobj = new Audio.Sound();
 let cnt = 1;
 let NumOfLoop = 1;
 
 const AudioPlayer = () => {
 
+    let screenOn = true;
     const [curTime, setCurTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -321,6 +322,7 @@ const AudioPlayer = () => {
         setLoop(switchLoop(cnt));
         Soundobj.loadAsync(SwitchAudio(1));
         Soundobj.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
+        // Soundobj.setOnPlaybackStatusUpdate(onScreenStatusUpdate);
         console.log("init");
     }, [])
 
